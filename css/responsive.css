@@ -1,0 +1,175 @@
+/* css/responsive.css */
+
+/* Telas Médias (Tablets em paisagem, desktops menores) */
+@media screen and (max-width: 992px) {
+  .header-container,
+  .features-grid,
+  .footer-content,
+  .content-container {
+    width: 90%; /* Manter um bom padding lateral */
+  }
+
+  .main-nav ul {
+    gap: 1.8rem;
+  }
+  .logo-text {
+    font-size: 1.5rem;
+  }
+  .logo-img {
+    height: 45px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* Cards começam a se ajustar */
+  }
+  .feature-card {
+    padding: 2rem;
+  }
+  .feature-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .service-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .service-icon-container {
+    margin-bottom: 1rem;
+  }
+  .service-details {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Telas Pequenas (Tablets em retrato, Smartphones) */
+@media screen and (max-width: 768px) {
+  .site-header {
+    padding: 0.8rem 0;
+  }
+  .header-container {
+    flex-wrap: wrap; /* Permite que o menu toggle vá para baixo se necessário */
+    justify-content: space-between; /* Garante logo à esquerda e toggle à direita */
+  }
+  .logo-container {
+    /* O logo pode precisar de ajuste fino aqui se o texto for muito longo */
+  }
+  .logo-text {
+    /* Pode ser necessário ocultar ou diminuir drasticamente em telas muito pequenas */
+  }
+
+  .main-nav {
+    display: none; /* Esconder o menu principal */
+    position: absolute;
+    top: 100%; /* Abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: rgba(
+      var(--secondary-color-rgb, 30, 30, 42),
+      0.98
+    ); /* Usando a variável se existir, senão fallback */
+    backdrop-filter: blur(8px);
+    padding: 1rem 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999; /* Para ficar sobre o conteúdo abaixo */
+  }
+  .main-nav.active {
+    /* Classe adicionada por JS */
+    display: block;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0; /* Remover gap para controle total com padding nos <li> */
+  }
+  .main-nav ul li {
+    width: 100%;
+  }
+  .main-nav ul li a {
+    display: block;
+    padding: 1rem 5%; /* Padding para toque fácil e ocupar largura */
+    text-align: center;
+    border-bottom: 1px solid rgba(var(--primary-color-rgb, 138, 43, 226), 0.2);
+  }
+  .main-nav ul li:last-child a {
+    border-bottom: none;
+  }
+  .main-nav a::after {
+    /* Remover sublinhado animado no mobile */
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block; /* Mostrar o botão hamburger */
+  }
+
+  .hero {
+    min-height: 60vh;
+    padding: 1.5rem;
+  }
+  .hero-content h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .hero-content p {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr; /* Uma coluna para os cards */
+    gap: 1.5rem;
+  }
+  .feature-card {
+    min-height: auto; /* Resetar min-height para conteúdo fluir */
+  }
+
+  .call-to-action {
+    padding: 3rem 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr; /* Uma coluna no footer */
+    text-align: center;
+  }
+  .footer-section {
+    margin-bottom: 1.5rem;
+  }
+  .footer-section h4 {
+    font-size: 1.3rem;
+  }
+
+  /* Ajustes para about.html e services.html em mobile */
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Telas Muito Pequenas (ajustes finos) */
+@media screen and (max-width: 480px) {
+  .logo-img {
+    height: 40px;
+  }
+  .logo-text {
+    font-size: 1.3rem; /* Ou até mesmo display: none; para mais espaço */
+  }
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  .hero-content p {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+}
